@@ -1,0 +1,6 @@
+/vendor/
+/.env
+/.env.*
+!/.env.example
+/auth.json
+*.log

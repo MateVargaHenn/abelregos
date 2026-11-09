@@ -1,0 +1,17 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Belső alkalmazáskönyvtárak tiltása
+    RewriteRule ^(?:src|config|vendor)(?:/|$) - [F,L]
+
+    # Belső fájlok tiltása
+    RewriteRule ^bootstrap\.php$ - [F,L]
+    RewriteRule ^composer\.(json|lock)$ - [F,L]
+    RewriteRule ^\.env(?:\..*)?$ - [F,END]
+
+    # A public könyvtár közvetlenül se legyen böngészhető
+    RewriteRule ^public(?:/|$) - [F,L]
+
+    # Minden API kérés a front controllerhez
+    RewriteRule ^ public/index.php [QSA,L]
+</IfModule>

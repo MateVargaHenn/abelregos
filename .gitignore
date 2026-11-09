@@ -1,0 +1,4 @@
+deploy/.env
+backend/.env
+deploy/node_modules/
+deploy/build/
